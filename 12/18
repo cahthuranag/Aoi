@@ -1,0 +1,19 @@
+ sampling freq (this was changed for part B)
+%Fs=12e3;
+% time interval
+Ts = 1/Fs;
+% original time interval
+Tsorig = 1/96e3;
+Fsorig = 1/Tsorig;
+% time base original
+torig = (0:1000)*Tsorig;
+% sampling time base
+t = (0:500)*Ts;
+x = 10*cos(2*pi*1e2*t)
+% zeroth order interpolation
+samp_hold = interp1(t,x,torig,'previous');
+figure;
+plot(torig,samp_hold);
+title('Zero order hold sampling');
+xlabel('time(s)');
+ylabel('Sample and hold');
